@@ -1,5 +1,7 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
+const { obtenerMayor } = require("../M04 JavaScript Bucles/homework");
+
 function devolverPrimerElemento(array) {
   //  Retornar el primer elemento del arreglo recibido por parámetro.
   //  Tu código:
@@ -69,50 +71,95 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
-   
+   suma =0
+   for (var i = 0; i <= arrayOfNums[i]; i++) {
+      var numero = arrayOfNums[i];
+      suma += numero;
+   }
+   return suma;
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
+   suma=0
+   for (var i = 0; i <= resultadosTest[i]; i++){
+      var numero=resultadosTest[i];
+      suma+=resultadosTest[i];
+      promedio = suma/resultadosTest.length;
+   } return promedio;
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
+   masGrande=0
+   for (var i=0; i<=arrayOfNums.length;i++){
+      if (arrayOfNums[i] > masGrande){
+         masGrande = arrayOfNums[i];
+      }    
+   } return masGrande;
 }
-
 function multiplicarArgumentos() {
    // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto.
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
+   var resultado = 1
+   if (arguments.length == 0){
+      return 0
+   } else if (arguments.length == 1){
+      return arguments[0]
+   } else{
+      for(var i = 0;i < arguments.length; i++ )
+      resultado *= arguments[i];
+   } return resultado;
+
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+   
+   var cantidadMayor=0
+   for (var i=0; i<=array.length;i++){
+      if (array[i] > 18 ){
+         cantidadMayor++;
+      }  
+       
+   } return cantidadMayor;
 }
+
 
 function diaDeLaSemana(numeroDeDia) {
    // Supongamos que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente.
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   if (numeroDeDia>=2 && numeroDeDia<=6){
+      return "Es dia laboral";
+   } else return "Es fin de semana";
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
-}
+   var string = num.toString(); 
+   if (string[0] === '9'){return true;}
+    else return false;
+   }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   var resultado = array.every(function(valor) {
+      return valor === array[0]
+      });  
+      return resultado;    
 }
 
 function mesesDelAño(array) {
@@ -120,32 +167,70 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   var meses = [];
+   for (i in array) {
+   if (array[i] == "Enero" || array[i] == "Marzo" || array[i] == "Noviembre") {
+   meses.push(array[i]);
+} 
+   } if (meses.length == 3) {
+      return meses;
+   } else{
+   return "No se encontraron los meses pedidos";
+}
 }
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   var arrayTablaDelSeis = [];
+      for (var i = 0; i < 11; i++){
+        arrayTablaDelSeis.push (6 * i);
+      }
+      return arrayTablaDelSeis;
 }
-
+   
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   var cont = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > 100) { 
+      cont.push(array[i]);
+    }
+  }
+  return cont;
 }
+
 
 /* ----------------------------------------------------------------------------------
 💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
 -------------------------------------------------------------------------------------*/
 
 function breakStatement(num) {
-   // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
-   // Guardar cada nuevo valor en un arreglo y retornarlo.
+      // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
+      // Guardar cada nuevo valor en un arreglo y retornarlo.
    // Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
-}
+
+   var array = [];
+   var suma = num;
+   for (var i = 0; i < 10; i++) {
+     suma = suma + 2;
+     if (suma === i) break;
+     else {
+       array.push(suma);
+     }
+   }
+   if (i < 10) {
+     return "Se interrumpió la ejecución";
+   } else {
+     return array;
+   }
+ }
 
 function continueStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
@@ -154,6 +239,16 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   var array = [];
+   var suma = num;
+   for (var i = 0; i < 10 ; i++){
+   if ( i+1 === 5 ){
+   continue;
+   } else {
+   suma = suma + 2;
+   array.push(suma);
+   } }
+   return array;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
